@@ -17,7 +17,7 @@ class user {
     ensure => present,
     owner  => 'laura',
     group  => 'laura',
-    source => 'puppet:///user/laura/authorized_keys',
+    source => "puppet:///modules/user/laura/authorized_keys",
     mode   => '0644',
   }
 }
