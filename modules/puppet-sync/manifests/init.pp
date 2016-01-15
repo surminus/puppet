@@ -1,5 +1,5 @@
 class puppet-sync {
-    file { 'post-hook':
+    file { 'post-merge':
         ensure  => file,
         path    => '/etc/puppet/.git/hooks/post-merge',
         source  => 'puppet:///modules/puppet-sync/post-merge',
@@ -11,7 +11,7 @@ class puppet-sync {
         ensure  => present,
         command => "cd /etc/puppet ; /usr/bin/git pull",
         user    => root,
-        minute  => '*/30',
-        require => File['post-hook'],
+        minute  => '*/15',
+        require => File['post-merge'],
     }
 }
