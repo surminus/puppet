@@ -3,6 +3,7 @@ class packages {
     'screen',
     'git',
     'postfix',
+    'unattended-upgrades',
   ]
 
   package {
