@@ -10,7 +10,7 @@ class packages {
     $software: ensure => 'installed'
   }
 
-  service { 'postfix':
+  service { [ 'postfix', 'unattended-upgrades']:
     ensure => running
   }
 }
