@@ -1,5 +1,5 @@
 class user {
-  include sudo
+  #  include sudo
   user { 'laura':
     ensure     => present,
     comment    => 'Laura Martin',
@@ -7,10 +7,10 @@ class user {
     managehome => true,
   }
 
-  sudo::conf { 'laura':
-    priority => 10,
-    content  => "laura ALL=(ALL) NOPASSWD: ALL",
-  }
+  #  sudo::conf { 'laura':
+  #  priority => 10,
+  #  content  => "laura ALL=(ALL) NOPASSWD: ALL",
+  #}
 
   file { '/home/laura/.ssh':
     ensure => directory,

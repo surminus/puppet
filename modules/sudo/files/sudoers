@@ -21,4 +21,4 @@ root    ALL=(ALL:ALL) ALL
 
 #includedir /etc/sudoers.d
 
-laura   ALL=(ALL:ALL) ALL
+laura   ALL=(ALL:ALL) NOPASSWD:ALL
