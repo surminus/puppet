@@ -1,8 +1,10 @@
 class packages {
   $software = [
-    'screen',
+    'bundler',
     'git',
     'postfix',
+    'ruby',
+    'screen',
     'unattended-upgrades',
   ]
 
