@@ -15,6 +15,7 @@ class blog {
     provider => git,
     source   => 'git://github.com/surminus/blog.git',
     revision => 'master',
+    require  => Package['bundler'],
   }
 
   file { '/var/www/blog/.git/hooks/post-merge':
@@ -26,6 +27,7 @@ class blog {
   }
 
   exec { 'Start Jekyll':
+    path        => '/usr/bin',
     command     => 'bundle exec jekyll serve',
     cwd         => '/var/www/blog',
     subscribe   => File['/var/www/blog'],
