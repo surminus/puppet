@@ -5,12 +5,8 @@ class user {
     comment    => 'Laura Martin',
     home       => '/home/laura',
     managehome => true,
+    shell      => '/bin/bash',
   }
-
-  #  sudo::conf { 'laura':
-  #  priority => 10,
-  #  content  => "laura ALL=(ALL) NOPASSWD: ALL",
-  #}
 
   file { '/home/laura/.ssh':
     ensure => directory,

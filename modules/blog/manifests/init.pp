@@ -1,4 +1,8 @@
-class blog {
+class blog (
+  $user = 'laura',
+  $home = '/home/laura',
+  $ruby_version = '2.0.0-p648',
+) {
   include nginx
 
   nginx::resource::vhost { 'blog.surminus.co.uk':
@@ -6,32 +10,14 @@ class blog {
     proxy       => 'http://localhost:4000',
   }
 
-  file { '/var/www':
-    ensure => 'directory',
-  }
-
-  vcsrepo { '/var/www/blog':
+  vcsrepo { "$home/blog":
     ensure   => latest,
     provider => git,
     source   => 'git://github.com/surminus/blog.git',
     revision => 'master',
-    require  => Package['bundler'],
+    user     => $user,
   }
 
-  file { '/var/www/blog/.git/hooks/post-merge':
-    ensure  => 'present',
-    source  => 'puppet:///modules/blog/post-merge',
-    mode    => 0755,
-    owner   => root,
-    group   => root,
-  }
-
-  exec { 'Start Jekyll':
-    path        => '/usr/bin',
-    command     => 'bundle exec jekyll serve',
-    cwd         => '/var/www/blog',
-    subscribe   => File['/var/www/blog'],
-    refreshonly => true,
-    logoutput   => true,
-  }
+  rbenv::compile { $ruby_version: user => $user, home => $home, global => true }
+  rbenv::install { $user: group => $user, home => $home }
 }
