@@ -1,5 +1,8 @@
 #!/bin/bash -e
 ## Run Puppet locally using puppet apply
+cd /etc/puppet
+bundle install
+bundle exec librarian-puppet install
 /usr/bin/puppet apply --modulepath=/etc/puppet/modules:/etc/puppet/vendor/modules /etc/puppet/manifests/init.pp
 
 ## Log status of the Puppet run
