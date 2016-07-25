@@ -1,16 +1,17 @@
 #!/bin/bash -e
 ## Run Puppet locally using puppet apply
+/usr/bin/logger -i "Starting run, pulling latest puppet repo" -t "puppet-agent"
 cd /etc/puppet
 bundle install
-bundle exec librarian-puppet install
+bundle exec librarian-puppet install && /usr/bin/logger -i "Librarian files installed" -t "puppet-agent"
 /usr/bin/puppet apply --modulepath=/etc/puppet/modules:/etc/puppet/vendor/modules /etc/puppet/manifests/init.pp
 
 ## Log status of the Puppet run
 if [ $? -eq 0 ]
 then
-    /usr/bin/logger -i "Puppet has run successfully" -t "puppet-run"
-    exit 0
+  /usr/bin/logger -i "Puppet has run successfully" -t "puppet-agent"
+  exit 0
 else
-    /usr/bin/logger -i "Puppet has ran into an error, please run Puppet manually" -t "puppet-run"
-    exit 1
+  /usr/bin/logger -i "Puppet has ran into an error, please run Puppet manually" -t "puppet-agent"
+  exit 1
 fi
