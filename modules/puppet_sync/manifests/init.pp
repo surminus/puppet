@@ -3,7 +3,7 @@ class puppet_sync {
     file { 'post-merge':
         ensure => file,
         path   => '/etc/puppet/.git/hooks/post-merge',
-        source => 'puppet:///modules/puppet-sync/post-merge',
+        source => 'puppet:///modules/puppet_sync/post-merge',
         mode   => '0755',
         owner  => root,
         group  => root,
