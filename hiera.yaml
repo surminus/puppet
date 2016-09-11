@@ -1,0 +1,6 @@
+---
+:yaml:
+  :datadir: "/etc/puppet/hieradata"
+
+:hierarchy:
+  - common

@@ -1,14 +1,8 @@
 # == Class: Packages
-class packages {
-  $software = [
-    'bundler',
-    'git',
-    'postfix',
-    'ruby',
-    'screen',
-    'unattended-upgrades',
-  ]
-
+class packages (
+  $software,
+) {
+  validate_array($software)
   package {
     $software: ensure => 'installed'
   }
