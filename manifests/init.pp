@@ -1,7 +1,7 @@
 node default {
   include blog
   include packages
-  include puppet-sync
+  include puppet_sync
   include sudo
   include user
 }

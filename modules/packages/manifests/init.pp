@@ -1,3 +1,4 @@
+# == Class: Packages
 class packages {
   $software = [
     'bundler',

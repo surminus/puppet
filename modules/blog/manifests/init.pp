@@ -10,3 +10,4 @@ class blog (
   file { "${home}/blog":
     ensure => absent,
   }
+}
