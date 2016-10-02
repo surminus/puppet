@@ -1,7 +1,8 @@
 # == Class: User
 #
-class user {
-  #  include sudo
+class user (
+  $ssh_keys,
+) {
   user { 'laura':
     ensure     => present,
     comment    => 'Laura Martin',
@@ -10,19 +11,11 @@ class user {
     shell      => '/bin/bash',
   }
 
-  file { '/home/laura/.ssh':
-    ensure => directory,
-    owner  => 'laura',
-    group  => 'laura',
-    mode   => '0700',
-  }
+  include sudo
 
-  file { '/home/laura/.ssh/authorized_keys':
-    ensure => present,
-    owner  => 'laura',
-    group  => 'laura',
-    source => 'puppet:///modules/user/laura/authorized_keys',
-    mode   => '0644',
-  }
+  create_resources(ssh_authorized_key, $ssh_keys)
 
+  file { '/home/laura/pass':
+    ensure => 'directory',
+  }
 }
