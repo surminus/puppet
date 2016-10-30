@@ -22,7 +22,7 @@ user::ssh_keys:
   'home-desktop':
     user: 'laura'
     type: 'ssh-rsa'
-    key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDOvolx4ictfRbG2CZaz2zus5gvarfvufvOUlGTUrHRAHunqmMEGJ3ipJkyaKA7XK5Ugr2HgjEU05GyG5HB4ExkLcQG5z+1Lqm0qAnTLUi2F23/ETcMNFdxh64mZSY8gLqds61xCa7HRSfyIoFJUtk3LUUGs1tGu6m0qIac4qMzm0/K5f7RB4OY1nxkWgdUuxktgq5ac/lp2MzQnqpQuqjeHUAcMRdobCD5V8iMGOFJPRkX7fgDZDwzsUvXClwrzL4DrxBxTWXWECbspIOMilJlKHD6khhlbh6u3PWXspmw3Ug+BBU1NXpJlYKtjTlbwytE2YhOIqSlOA5NiGWn8Bwh'
+    key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDVNYSmOcE9S8YmaLC6KOylTDvpLThj846h8ku9QZlhQqfSd5n6ZoD2pbs7v9RM9nfWuU+Y5djWSuQxqtW+Pu0SBRCAIjzCWyPbvai2cFe2q6KN2hYmi//gtDQcd78Q9ri+LVHfjN8yVCIu+dKNbcfMBwqkQu4t8SK8G6C2DITId1ezY1OuqdIKHgTN4UH9DLl0aKCScz7Z0qFMcMXWE5tdGqVzka5VekWsJ3JA35Br/ds28kO8XxjX8GwFA5b7o7YzqrJsBD4r/ggkfuJ1SjDv8qsdO1s5+D+VrPSAmFKAHP8bq0g/G9bBVBI1tGjmMealrPN8VmsGr9DA6xP0rZTZ'
   'work-laptop':
     user: 'laura'
     type: 'ssh-rsa'
