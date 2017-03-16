@@ -3,8 +3,12 @@
 class agender {
   include nginx
 
-  nginx::resource::vhost { 'www.agender.org.uk':
-    www_root => '/var/www/agender/htdocs',
+  nginx::resource::server { 'www.agender.org.uk':
+    www_root    => '/var/www/agender/htdocs',
+    server_name => ['www.agender.org.uk',
+                    'agender.org.uk',
+                    'agender.surminus.co.uk',
+                   ]
   }
 
   vcsrepo { '/var/www/agender':
@@ -12,7 +16,7 @@ class agender {
     provider => git,
     source   => 'git://github.com/surminus/agender.git',
     revision => 'master',
-    before   => Nginx::Resource::Vhost['www.agender.org.uk'],
+    notify   => Service['nginx'],
   }
 
 }

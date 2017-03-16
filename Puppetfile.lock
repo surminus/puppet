@@ -1,10 +1,10 @@
 FORGE
   remote: https://forgeapi.puppetlabs.com
   specs:
-    jfryman-nginx (999.999.999)
-      puppetlabs-apt (< 3.0.0, >= 1.8.0)
-      puppetlabs-concat (< 3.0.0, >= 1.1.1)
-      puppetlabs-stdlib (< 5.0.0, >= 4.2.0)
+    puppet-nginx (0.6.0)
+      puppetlabs-apt (< 3.0.0, >= 2.1.0)
+      puppetlabs-concat (< 3.0.0, >= 1.2.5)
+      puppetlabs-stdlib (< 5.0.0, >= 4.6.0)
     puppetlabs-apt (2.3.0)
       puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
     puppetlabs-concat (2.2.0)
@@ -15,7 +15,7 @@ FORGE
       puppetlabs-stdlib (< 5.0.0, >= 2.3.0)
 
 DEPENDENCIES
-  jfryman-nginx (>= 0)
+  puppet-nginx (>= 0)
   puppetlabs-vcsrepo (>= 0)
   saz-sudo (>= 0)
 
