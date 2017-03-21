@@ -8,6 +8,7 @@ class agender {
     server_name => ['www.agender.org.uk',
                     'agender.org.uk',
                     'agender.surminus.co.uk',
+                    'preview.agender.org.uk',
                    ]
   }
 
