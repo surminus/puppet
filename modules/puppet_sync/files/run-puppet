@@ -1,0 +1,8 @@
+#!/bin/bash -e
+## Run Puppet locally using puppet apply
+exec 1> >(logger -s -t $(basename $0)) 2>&1
+cd /etc/puppet
+/usr/bin/git pull
+bundle install
+bundle exec librarian-puppet install
+/usr/bin/puppet apply --modulepath=/etc/puppet/modules:/etc/puppet/vendor/modules /etc/puppet/manifests/init.pp
