@@ -14,8 +14,12 @@ class agender {
     server_name => ['www.agender.org.uk',
                     'agender.org.uk',
                     'agender.surminus.co.uk',
-                    'preview.agender.org.uk',
                    ]
+  }
+
+  nginx::resource::server { 'preview.agender.org.uk':
+    www_root    => '/data/www/agender-preview/htdocs',
+    server_name => ['preview.agender.org.uk']
   }
 
   vcsrepo { '/data/www/agender':
@@ -23,6 +27,14 @@ class agender {
     provider => git,
     source   => 'git://github.com/surminus/agender.git',
     revision => 'master',
+    notify   => Service['nginx'],
+  }
+
+  vcsrepo { '/data/www/agender-preview':
+    ensure   => latest,
+    provider => git,
+    source   => 'git://github.com/surminus/agender.git',
+    revision => 'preview',
     notify   => Service['nginx'],
   }
 
